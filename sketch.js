@@ -151,7 +151,7 @@ function draw() {
         text("Stage: " + String(parseInt(stage) + 1), 25, 30);
         text("Count: " + stageResult[0] + ", " + stageResult[1], 25, 80);
         text("Mark: " + Math.max(stageResult[0], stageResult[1]) + '/8', 25, 130);
-        text("Time Left: " + nextStageTime, 25, 180)
+        text("Time Left: " + nextStageTime, 40, 180)
 
     }
 }
