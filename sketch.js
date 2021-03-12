@@ -119,6 +119,7 @@ function modelReady() {
     select('#status').html('Model Loaded');
 }
 
+
 function draw() {
     background(51);
     image(video, 0, 0, width, height);
