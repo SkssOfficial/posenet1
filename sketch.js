@@ -30,7 +30,7 @@ let radio = 640 / 480
 let waitTime = 5;
 let waitTimeFuncVar;
 
-let nextStageTime = 65;
+let nextStageTime = 60;
 let nextStageTimeVar;
 
 // function preload() {
@@ -174,7 +174,6 @@ function countMovement() {
         
         switch (String(stage)) {
             case '0':
-            case '1':
                 if (leftKnee.confidence < confidenceOffset || rightKnee.confidence < confidenceOffset) {
                     break;
                 }
@@ -184,13 +183,23 @@ function countMovement() {
                     stageResult[1] += 1
                 }
                 break;
+            case '1':
+                if (leftKnee.confidence < confidenceOffset || rightKnee.confidence < confidenceOffset) {
+                    break;
+                }
+                if (rightKnee.y > leftKnee.y + poseOffset && leftElbow.y > leftShoulder.y + poseOffset) {
+                    stageResult[0] += 1
+                } else if (leftKnee.y > rightKnee.y + poseOffset && rightElbow.y > rightShoulder.y + poseOffset) {
+                    stageResult[1] += 1
+                }
+                break;
             case '2':
                 if (leftKnee.confidence < confidenceOffset || rightKnee.confidence < confidenceOffset) {
                     break;
                 }
-                if (rightKnee.y > leftKnee.y + poseOffset && leftElbow.y > leftShoulder.y + poseOffset ) {
+                if (rightKnee.y > leftKnee.y + poseOffset && leftElbow.y > leftWrist.y + poseOffset ) {
                     stageResult[0] += 1
-                } else if (leftKnee.y > rightKnee.y + poseOffset && rightElbow.y > rightShoulder.y + poseOffset) {
+                } else if (leftKnee.y > rightKnee.y + poseOffset && rightElbow.y > rightWrist.y + poseOffset  ) {
                     stageResult[1] += 1
                 }
                 break;
