@@ -51,12 +51,12 @@ function setUpStepDetail() {
         case '2':
             stepDetail.innerHTML = "先提右腿，再提左腿，雙手同時輪流在左方和右方拍掌，共8次。"
             break;
-        case '3':
-            stepDetail.innerHTML = "重複第1組動作，先提起右腿，然後放下；再提起左腿，然後放下；每次提腿時，提腿稍高，雙手同時在腿下拍掌，共8次。"
-            break;
-        case '4':
-            stepDetail.innerHTML = "腰背略為離開椅背，兩臂屈曲，指尖向上，手肘提高至胸前，然後手肘向兩側張開再收回，共8次。"
-            break;
+        //case '3':
+           // stepDetail.innerHTML = "重複第1組動作，先提起右腿，然後放下；再提起左腿，然後放下；每次提腿時，提腿稍高，雙手同時在腿下拍掌，共8次。"
+           // break;
+      //  case '4':
+          //  stepDetail.innerHTML = "腰背略為離開椅背，兩臂屈曲，指尖向上，手肘提高至胸前，然後手肘向兩側張開再收回，共8次。"
+          //  break; 
         default:
             break;
     }
@@ -148,10 +148,10 @@ function draw() {
         textSize(80);
         textAlign(LEFT, TOP);
         // fill(255, 0, 0);
-        text("Stage: " + String(parseInt(stage) + 1), 25, 10);
-        text("Count: " + stageResult[0] + ", " + stageResult[1], 25, 90);
-        text("Mark: " + Math.max(stageResult[0], stageResult[1]) + '/8', 25, 170);
-        text("Time Left: " + nextStageTime, 25, 260)
+        text("Stage: " + String(parseInt(stage) + 1), 80, 0);
+        text("Count: " + stageResult[0] + ", " + stageResult[1], 80, 80);
+        text("Mark: " + Math.max(stageResult[0], stageResult[1]) + '/8', 80, 160);
+        text("Time Left: " + nextStageTime, 80, 240)
 
     }
 }
@@ -203,20 +203,20 @@ function countMovement() {
                     stageResult[1] += 1
                 }
                 break;
-            case '4':
-                if (leftWrist.y > leftElbow.y + poseOffset && leftWrist.confidence > confidenceOffset && leftElbow.confidence > confidenceOffset) {
-                    stageResult[0] += 1
-                } else if (rightWrist.y > rightElbow.y + poseOffset && rightWrist.confidence > confidenceOffset && rightElbow.confidence > confidenceOffset) {
-                    stageResult[1] += 1
-                }
-                break;
-            case '3':
-                if (leftKnee.y > leftElbow.y + poseOffset && leftKnee.confidence > confidenceOffset && leftElbow.confidence > confidenceOffset) {
-                    stageResult[0] += 1
-                } else if (rightKnee.y > rightElbow.y + poseOffset && rightKnee.confidence > confidenceOffset && rightElbow.confidence > confidenceOffset) {
-                    stageResult[1] += 1
-                }
-                break;
+           // case '4':
+              //  if (leftWrist.y > leftElbow.y + poseOffset && leftWrist.confidence > confidenceOffset && leftElbow.confidence > confidenceOffset) {
+              //      stageResult[0] += 1
+               // } else if (rightWrist.y > rightElbow.y + poseOffset && rightWrist.confidence > confidenceOffset && rightElbow.confidence > confidenceOffset) {
+              //      stageResult[1] += 1
+            //    }
+            //    break;
+        //    case '3':
+           //     if (leftKnee.y > leftElbow.y + poseOffset && leftKnee.confidence > confidenceOffset && leftElbow.confidence > confidenceOffset) {
+           //         stageResult[0] += 1
+            //    } else if (rightKnee.y > rightElbow.y + poseOffset && rightKnee.confidence > confidenceOffset && rightElbow.confidence > confidenceOffset) {
+             //       stageResult[1] += 1
+             //   }
+            //    break;
             default:
                 break;
         }
